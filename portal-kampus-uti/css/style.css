@@ -1,0 +1,329 @@
+:root {
+/*Warna Box*/
+    --uti-red: #8B0000;          
+    --uti-gold: #f1e42e;         
+/*Warna Background*/
+    --bg-clean: #ffffff;         
+    --bg-gray: #F8F9FA;          
+
+    --text-main: #212529;        
+    --text-muted: #6C757D;       
+    --border-light: #E9ECEF;     
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-main);
+    background-color: var(--bg-clean); 
+    line-height: 1.6;
+    overflow-x: hidden; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*Animasi Loading Dino*/
+.loader-screen {
+    position: fixed;
+    inset: 0;
+    background: var(--bg-clean);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: hideLoader 0.1s linear 0.5s forwards;
+}
+
+.dino-stage {
+    width: 200px;
+    height: 60px;
+    border-bottom: 2px solid var(--uti-red);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.dino-svg {
+    width: 45px;
+    height: 45px;
+    fill: var(--uti-red);
+    animation: dinoJump 0.5s ease-in-out infinite alternate;
+}
+
+.dino-ground {
+    position: absolute;
+    bottom: 0;
+    width: 200%;
+    border-bottom: 2px dashed var(--uti-gold);
+    animation: groundMove 0.8s linear infinite;
+}
+
+@keyframes dinoJump {
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(-15px); }
+}
+
+@keyframes groundMove {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes hideLoader {
+    to {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+}
+
+/*AREA PENEMPATAN LOGO*/
+.logo-placeholder {
+    width: 50px;
+    height: 50px;
+    background: transparent; 
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.logo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+}
+
+/*HALAMAN INDEX & COMING SOON*/
+.landing-container {
+    flex: 1; /* REVISI: Akan menolak footer terus ke bawah */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.landing-title-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; 
+    margin-bottom: 8px;
+}
+
+.landing-header h1 {
+    font-size: 32px;
+    color: var(--uti-red);
+}
+
+.landing-header p {
+    color: var(--text-muted);
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+.role-options {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap; 
+}
+
+.role-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 280px;
+    padding: 30px 20px;
+    background: var(--bg-clean);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.role-card:hover {
+    border-color: var(--uti-red);
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(139, 0, 0, 0.05); 
+}
+
+.role-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.role-card h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.role-card p {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.btn-primary {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: var(--uti-red);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.role-card:hover .btn-primary {
+    background: var(--uti-gold);
+    color: var(--uti-red);
+}
+
+/*HALAMAN DASHBOARD*/
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px; 
+    border-bottom: 1px solid var(--border-light);
+}
+
+.brand-wrap {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.brand-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--uti-red);
+}
+
+.btn-outline {
+    padding: 8px 16px;
+    border: 1px solid var(--uti-red);
+    color: var(--uti-red);
+    border-radius: 6px;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.btn-outline:hover {
+    background: var(--uti-red);
+    color: white;
+}
+
+.dashboard-content {
+    flex: 1;
+    width: 100%;
+    padding: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: var(--text-main);
+    border-left: 4px solid var(--uti-gold);
+    padding-left: 10px;
+}
+
+.portal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.portal-item {
+    padding: 20px;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    background: var(--bg-clean);
+}
+
+.portal-item:hover {
+    border-color: var(--uti-gold);
+    background: var(--bg-gray);
+    transform: translateY(-3px);
+}
+
+.portal-item h3 {
+    font-size: 16px;
+    color: var(--uti-red);
+    margin-bottom: 5px;
+}
+
+.portal-item p {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/*FOOTER*/
+.main-footer {
+    border-top: 1px solid var(--border-light);
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-gray);
+    width: 100%;
+}
+
+.footer-text p {
+    font-size: 15.5px;
+    color: var(--text-muted);
+    margin-bottom: 0; 
+    line-height: 1.4;
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+}
+
+.social-btn {
+    width: 32px; 
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-clean);
+    border: 1px solid var(--border-light);
+    border-radius: 50%;
+    color: var(--text-muted);
+    transition: all 0.3s;
+}
+
+.social-btn:hover {
+    border-color: var(--uti-red);
+    color: var(--uti-red);
+    transform: scale(1.1) rotate(5deg);
+}
+
+.social-btn svg {
+    width: 25px;
+    height: 25px;
+    fill: currentColor;
+}
